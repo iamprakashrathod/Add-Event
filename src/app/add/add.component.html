@@ -1,0 +1,32 @@
+ <div class="container">
+    <img src="https://www.iitb.ac.in/sites/www.iitb.ac.in/themes/touchm/logo.png" alt="IITB Logo" height="100">
+    <h2>Add Event</h2>
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+      <div class="form-group">
+        <label for="name">Event Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="event.name" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Event Date</label>
+        <input type="date" class="form-control" id="date" name="date" [(ngModel)]="event.date" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Event Time</label>
+        <input type="time" class="form-control" id="time" name="time" [(ngModel)]="event.time" required>
+      </div>
+      <div class="form-group">
+        <label for="venue">Event Venue</label>
+        <input type="text" class="form-control" id="venue" name="venue" [(ngModel)]="event.venue" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Event Description</label>
+        <textarea class="form-control" id="description" name="description" [(ngModel)]="event.description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="image">Event Image</label>
+        <input type="file" class="form-control-file" id="image" name="image" (change)="onImageSelected($event)">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!eventForm.form.valid">Add Event</button>
+    </form>
+  </div>
+   
